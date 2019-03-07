@@ -1,0 +1,29 @@
+<body>
+  <div class="container">
+    <header>
+      {{> gitcount}}
+    </header>
+      {{> gitcountchart}}
+    <ul>
+      {{#each repos}}
+        {{> item}}
+      {{/each}}
+    </ul>
+  </div>
+</body>
+ 
+<template name="item">
+  <a href="{{url}}"><li>{{name}}</li></a>
+</template>
+
+<template name="gitcount">
+  <h1>The total repo about cardano in Github is {{repocount}}</h1>
+</template>
+
+
+<template name="gitcountchart">
+  <div id="chart">
+    <svg style="height:400px;"/>
+  </div>
+</template>
+
