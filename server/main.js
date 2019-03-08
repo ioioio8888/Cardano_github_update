@@ -34,10 +34,10 @@ function parse_link_header(header) {
 Meteor.startup(() => {
   //code to run on server at startup
 	SyncedCron.add({
-	  	name: 'Update githubdata every 1 mins',
+	  	name: 'Update githubdata every day',
 	  	schedule: function(parser) {
 	    // parser is a later.parse object
-	    	return parser.text('every 1 mins');
+	    	return parser.text('every 1 days');
 	  	},
 	 	job: () => updateGithubRepos.call({}, (err, data) => {})
 	});
@@ -117,7 +117,7 @@ function CallGitHubApi(){
             // We do not just remove all repos because other updates may be going on at the same time that rely on the Repos collection
              const repoIds = resp.data.items.map(a => a.id);
              newreposids.push(repoIds);
-            // logUpdate("GitHub", "repos");
+             //logUpdate("GitHub", "repos");
             resolve('success');
           } else {
           	providerUrl = undefined;
