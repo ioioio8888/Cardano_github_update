@@ -3,6 +3,7 @@
     <header>
       {{> gitcount}}
     </header>
+      {{> gitcommitchart}}
       {{> gitcountchart}}
     <ul>
       {{#each repos}}
@@ -27,3 +28,9 @@
   </div>
 </template>
 
+
+<template name="gitcommitchart">
+  <div id="chart2">
+    <svg style="height:400px;"/>
+  </div>
+</template>
